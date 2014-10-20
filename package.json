@@ -1,0 +1,34 @@
+{
+  "name": "traits",
+  "version": "0.0.0",
+  "description": "Lightweight traits implementation for javascript",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "keywords": [
+    "traits",
+    "javascript",
+    "nodejs"
+  ],
+  "author": "Diego Borges",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "mocha": "^1.21.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/drborges/woodsjs-traits.git"
+  },
+  "bugs": {
+    "url": "https://github.com/drborges/woodsjs-traits/issues"
+  },
+  "homepage": "https://github.com/drborges/woodsjs-traits",
+  "dependencies": {
+    "object-mixin": "^0.2.1"
+  }
+}
