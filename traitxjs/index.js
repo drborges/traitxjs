@@ -1,10 +1,10 @@
 'use strict';
 
-var TraitSupportApi = require('./support')
+var traitxjsApi = require('./api')
   , defineProperty = require('./utils').defineProperty;
 
-module.exports = function TraitSupport(target) {
-  return Object.keys(TraitSupportApi).reduce(function (target, property) {
-    return defineProperty(target, property, TraitSupportApi[property]);
+module.exports = function traitxjs(target) {
+  return Object.keys(traitxjsApi).reduce(function (target, property) {
+    return defineProperty(target, property, traitxjsApi[property]);
   }, target);
 };

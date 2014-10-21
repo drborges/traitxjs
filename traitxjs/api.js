@@ -36,5 +36,14 @@ module.exports = {
       return target.hasTrait(trait);
     });
   },
+
+  hasAnyTraits: function (/* arguments */) {
+    var target = this;
+    var traits = Array.prototype.slice.call(arguments);
+
+    return traits.reduce(function (hasTraits, trait) {
+      return target.hasTrait(trait) ? true : hasTraits;
+    }, false);
+  },
 };
 
