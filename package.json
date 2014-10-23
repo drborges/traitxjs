@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "gulp test"
   },
   "keywords": [
     "traits",
@@ -18,7 +18,12 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^1.9.2",
-    "mocha": "^1.21.5"
+    "gulp": "^3.8.9",
+    "gulp-mocha": "^1.1.1",
+    "gulp-notify": "^2.0.0",
+    "gulp-plumber": "^0.6.6",
+    "mocha": "^1.21.5",
+    "mocha-notifier-reporter": "^0.1.0"
   },
   "repository": {
     "type": "git",
