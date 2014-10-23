@@ -1,28 +1,27 @@
-var Assertion = require('chai').Assertion
+module.exports = function (chai, utils) {
 
-Assertion.addMethod('trait', function (trait) {
-  var obj = this._obj;
-
-  this.assert(
-    obj.hasTrait(trait),
-    "expected #{this} to have the following trait properties: #{exp}",
-    "expected #{this} to not have the following trait properties: #{act}",
-    Object.keys(trait), // expected
-    Object.keys(obj) // actual
-  );
-});
-
-Assertion.addMethod('traits', function (traits) {
-  var chai = this;
-  var obj = this._obj;
-
-  traits.forEach(function (trait) {
-    chai.assert(
+  var assertThatSubjectHasTrait = function (ctx, obj, trait) {
+    ctx.assert(
       obj.hasTrait(trait),
       "expected #{this} to have the following trait properties: #{exp}",
       "expected #{this} to not have the following trait properties: #{act}",
       Object.keys(trait), // expected
       Object.keys(obj) // actual
     );
+  };
+
+  chai.Assertion.addMethod('trait', function (trait) {
+    var subject = this._obj;
+    assertThatSubjectHasTrait(this, subject, trait)
   });
-});
+
+  chai.Assertion.addMethod('traits', function (traits) {
+    var ctx = this;
+    var subject = ctx._obj;
+
+    traits.forEach(function (trait) {
+      assertThatSubjectHasTrait(ctx, subject, trait)
+    });
+  });
+
+};

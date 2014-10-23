@@ -1,4 +1,7 @@
-require('./trait')
+var chai = require('chai')
+  , traitHelper = require('./trait')
 
-expect = require('chai').expect
+chai.use(traitHelper)
+
+expect = chai.expect
 src = require('./path').src
