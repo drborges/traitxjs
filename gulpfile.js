@@ -14,6 +14,8 @@ gulp.task('tdd', function () {
 })
 
 gulp.task('test', function () {
+  require('./test/helpers')
+
   gulp.src([ paths.src, paths.spec ])
     .pipe(plumber())
     .pipe(mocha({ reporter: notifierReporter.decorate('spec') }))

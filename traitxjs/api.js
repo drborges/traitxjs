@@ -48,9 +48,22 @@ module.exports = {
 
   dropTrait: function (trait) {
     var target = this;
+    var traitProperties = {};
 
-    return Object.keys(trait).reduce(function (target, traitProperty) {
+    if (typeof trait === 'function') trait.call(traitProperties);
+    else if (typeof trait === 'object') traitProperties = trait;
+
+    return Object.keys(traitProperties).reduce(function (target, traitProperty) {
       return delete target[traitProperty] && target;
+    }, target);
+  },
+
+  dropTraits: function (/* arguments */) {
+    var target = this;
+    var traits = Array.prototype.slice.call(arguments);
+
+    return traits.reduce(function (target, trait) {
+      return target.dropTrait(trait);
     }, target);
   },
 };
