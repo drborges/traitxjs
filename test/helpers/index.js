@@ -1,4 +1,4 @@
-require('./trait.helper')
+require('./trait')
 
 expect = require('chai').expect
-src = require('./path.helper').src
+src = require('./path').src
