@@ -20,7 +20,6 @@ describe('traitxjs', function () {
     })
 
     it('adds trait support API to a given constructor function', function () {
-      var Runnable = function () { this.run = 'perform run action' }
       var obj = traitxjs(Runnable)
 
       expect(obj).to.have.property('hasTrait')
@@ -97,6 +96,14 @@ describe('traitxjs', function () {
       var runnableAndJumpable = traitxjs({}).withTraits(Runnable, Jumpable)
 
       expect(runnableAndJumpable.hasAnyTraits(Runnable, Jumpable)).to.be.true
+    })
+  })
+
+  describe('#dropTrait', function () {
+    it('removes constructor trait implementation from a given object', function () {
+      var jumpable = traitxjs({}).withTrait(Jumpable).dropTrait(Jumpable)
+
+      expect(jumpable.hasTrait(Jumpable)).to.be.false
     })
   })
 })

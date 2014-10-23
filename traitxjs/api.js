@@ -17,8 +17,8 @@ module.exports = {
   },
 
   hasTrait: function (trait) {
-    var traitProperties = {};
     var target = this;
+    var traitProperties = {};
 
     if (typeof trait === 'function') trait.call(traitProperties);
     else if (typeof trait === 'object') traitProperties = trait;
@@ -44,6 +44,14 @@ module.exports = {
     return traits.reduce(function (hasTraits, trait) {
       return target.hasTrait(trait) ? true : hasTraits;
     }, false);
+  },
+
+  dropTrait: function (trait) {
+    var target = this;
+
+    return Object.keys(trait).reduce(function (target, traitProperty) {
+      return delete target[traitProperty] && target;
+    }, target);
   },
 };
 
