@@ -60,7 +60,7 @@ describe('traitxjs', function () {
   })
 
   describe('#hasTraits', function () {
-    it('checks whether or not an object implements multiple wraits', function () {
+    it('checks whether or not an object implements multiple traits', function () {
       var obj = traitxjs({})
 
       expect(obj.hasTraits(Runnable, Jumpable)).to.be.false
