@@ -15,9 +15,10 @@ module.exports = function (chai, utils) {
     assertThatSubjectHasTrait(this, subject, trait)
   });
 
-  chai.Assertion.addMethod('traits', function (traits) {
+  chai.Assertion.addMethod('traits', function (/* arguments */) {
     var ctx = this;
     var subject = ctx._obj;
+    var traits = Array.prototype.slice.call(arguments);
 
     traits.forEach(function (trait) {
       assertThatSubjectHasTrait(ctx, subject, trait)

@@ -41,7 +41,7 @@ describe('traitxjs', function () {
     it('applies multiple traits to a given object', function () {
       var obj = traitxjs({}).withTraits(Runnable, Jumpable)
 
-      expect(obj).to.have.traits([ Runnable, Jumpable ])
+      expect(obj).to.have.traits(Runnable, Jumpable)
       expect(obj.run).to.equal('perform run action')
       expect(obj.jump).to.equal('perform jump action')
     })
@@ -113,7 +113,7 @@ describe('traitxjs', function () {
     it('removes traits from a given object', function () {
       var obj = traitxjs({}).withTraits(Runnable, Jumpable).dropTraits(Jumpable, Runnable)
 
-      expect(obj).to.not.have.traits([ Runnable, Jumpable ])
+      expect(obj).to.not.have.traits(Runnable, Jumpable)
     })
   })
 })
